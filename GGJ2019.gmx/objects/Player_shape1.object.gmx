@@ -312,46 +312,46 @@ dist = distance_to_object(home);
 dist2 = distance_to_object(home2);
 dist3 = distance_to_object(home3);
 dist4 = distance_to_object(home4);
-if (dist &lt;= 100){
+if (dist &lt;= 300){
     volume = 1;
-}else if (dist &lt;= 1000){
+}else if (dist &lt;= 600){
     volume = 0.7;
-}else if (dist &lt;= 2000){
+}else if (dist &lt;= 1200){
     volume = 0.4;
-}else if (dist &lt;= 3000){
+}else if (dist &lt;= 2500){
     volume = 0.1;
 }else{
     volume = 0;
 }
-if (dist2 &lt;= 100){
+if (dist2 &lt;= 300){
     volume2 = 1;
-}else if (dist2 &lt;= 1000){
+}else if (dist2 &lt;= 600){
     volume2 = 0.7;
-}else if (dist2 &lt;= 2000){
+}else if (dist2 &lt;= 1200){
     volume2 = 0.4;
-}else if (dist2 &lt;= 3000){
+}else if (dist2 &lt;= 2500){
     volume2 = 0.1;
 }else{
     volume2 = 0;
 }
-if (dist3 &lt;= 100){
+if (dist3 &lt;= 300){
     volume3 = 1;
-}else if (dist3 &lt;= 1000){
+}else if (dist3 &lt;= 600){
     volume3 = 0.7;
-}else if (dist3 &lt;= 2000){
+}else if (dist3 &lt;= 1200){
     volume3 = 0.4;
-}else if (dist3 &lt;= 3000){
+}else if (dist3 &lt;= 2500){
     volume3 = 0.1;
 }else{
     volume3 = 0;
 }
-if (dist4 &lt;= 100){
+if (dist4 &lt;= 300){
     volume4 = 1;
-}else if (dist4 &lt;= 1000){
+}else if (dist4 &lt;= 600){
     volume4 = 0.7;
-}else if (dist4 &lt;= 2000){
+}else if (dist4 &lt;= 1200){
     volume4 = 0.4;
-}else if (dist4 &lt;= 3000){
+}else if (dist4 &lt;= 2500){
     volume4 = 0.1;
 }else{
     volume4 = 0;

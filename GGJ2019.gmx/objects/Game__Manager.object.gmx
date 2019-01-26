@@ -51,7 +51,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>audio_play_sound(sng_theme3,100,true);
+            <string>audio_play_sound(sng_creepynotcreepy,100,true);
 </string>
           </argument>
         </arguments>
