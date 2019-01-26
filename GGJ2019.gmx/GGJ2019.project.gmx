@@ -45,6 +45,10 @@
     <object>objects\ParentWall_obj</object>
     <object>objects\circle_wall</object>
     <object>objects\home</object>
+    <object>objects\home2</object>
+    <object>objects\home3</object>
+    <object>objects\home4</object>
+    <object>objects\pulse</object>
     <object>objects\background_colourchange</object>
   </objects>
   <rooms name="rooms">

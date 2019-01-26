@@ -62,7 +62,10 @@
     <instance objName="circle_wall" x="1248" y="1856" name="inst_236C3A4A" locked="0" code="" scaleX="4.5" scaleY="4.5" colour="4294967295" rotation="0"/>
     <instance objName="circle_wall" x="3232" y="704" name="inst_D3382B5D" locked="0" code="" scaleX="10.5" scaleY="10.5" colour="4294967295" rotation="0"/>
     <instance objName="circle_wall" x="928" y="3296" name="inst_CFA94357" locked="0" code="" scaleX="-9.5" scaleY="-9.5" colour="4294967295" rotation="0"/>
-    <instance objName="home" x="1120" y="2816" name="inst_7118C282" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="home" x="800" y="2848" name="inst_7118C282" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="home2" x="3296" y="1632" name="inst_63A4E7EB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="home3" x="704" y="384" name="inst_C38371B6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="home4" x="2880" y="3808" name="inst_16EBF542" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="background_colourchange" x="32" y="0" name="inst_C49153F1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
