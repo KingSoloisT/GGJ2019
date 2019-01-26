@@ -46,6 +46,7 @@
     <sprite>sprites\spr_findhome</sprite>
     <sprite>sprites\spr_shh</sprite>
     <sprite>sprites\spr_glow</sprite>
+    <sprite>sprites\spr_black</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bkg_main</background>
