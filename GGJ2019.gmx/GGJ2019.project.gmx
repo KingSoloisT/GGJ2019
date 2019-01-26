@@ -27,6 +27,7 @@
     <sprite>sprites\spr_shape3</sprite>
     <sprite>sprites\spr_shape4</sprite>
     <sprite>sprites\TestWall</sprite>
+    <sprite>sprites\spr_hex_particle</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
