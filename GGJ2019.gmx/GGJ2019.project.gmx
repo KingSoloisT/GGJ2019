@@ -37,6 +37,9 @@
     <sprite>sprites\spr_shape2_home</sprite>
     <sprite>sprites\spr_shape1_home</sprite>
     <sprite>sprites\spr_echo</sprite>
+    <sprite>sprites\spr_controls</sprite>
+    <sprite>sprites\spr_quit</sprite>
+    <sprite>sprites\spr_findhome</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bkg_main</background>
