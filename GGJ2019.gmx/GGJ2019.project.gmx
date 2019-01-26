@@ -39,7 +39,6 @@
     <object>objects\Game__Manager</object>
     <object>objects\ParentWall_obj</object>
     <object>objects\circle_wall</object>
-    <object>objects\Player_home</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>
