@@ -25,12 +25,14 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//thrustPower = 100;
-thrustPower = 0;
-boosterPower = 2;
+            <string>boosterPower = 2;
 turnSpeed = 5;
 dir = 0;
 canPush = true;
+boost = 0;
+maxBoost = 200;
+slowSpeed = 0.4;
+isMoving = false;
 </string>
           </argument>
         </arguments>
@@ -93,23 +95,29 @@ canPush = true;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>key_thrust_held = keyboard_check(vk_space);
-key_thrust_release = keyboard_check_released(vk_space);
+            <string>key_thrust_held = ((keyboard_check(ord("W"))) || (keyboard_check(vk_up)));
+key_thrust_release = keyboard_check_released(ord("W")) || keyboard_check_released(vk_up);
 
-if ((key_thrust_held) &amp;&amp; (canPush))
+if ((key_thrust_held) &amp;&amp; (canPush) &amp;&amp; (!isMoving))
 {
-    thrustPower += boosterPower;
-    show_debug_message(thrustPower);
+    boost += boosterPower;
+    show_debug_message(boost);
 }
 
-//if (keyboard_check_pressed(vk_space))
-if (key_thrust_release)
+if (key_thrust_release &amp;&amp; canPush &amp;&amp; (!isMoving))
 {
-    if (canPush)
-    {
-        physics_apply_local_impulse(0,0,0,-thrustPower * 100);
-        thrustPower = 0;
-    }
+    isMoving = true;
+}
+
+if (isMoving)
+{
+    motion_add(dir+90, boost/3);
+    boost = 0;
+    isMoving = false;
+}
+else
+{
+    speed = speed - slowSpeed;
 }
 if (keyboard_check(vk_left) || (keyboard_check(ord('A'))))
 {
@@ -122,10 +130,11 @@ if (keyboard_check(vk_right) || (keyboard_check(ord('D'))))
 }
 if (keyboard_check_pressed(vk_enter))
 {
-    show_debug_message("Speed: " + string(phy_speed));
+    show_debug_message("XY Speed: " + string(hspeed) + ", " + string(vspeed));
     show_debug_message("Direction: " + string(dir));
     show_debug_message("Coordinates: (" + string(x) + ", " + string(y) + ")");
     show_debug_message("Shape Number: " + string(shapeNum));
+    show_debug_message("Boost: " + string(boost));
     
 }
 if (keyboard_check_pressed(ord('F')))
@@ -140,7 +149,7 @@ if (keyboard_check_pressed(ord('F')))
     }
 }
 
-phy_rotation = -dir;
+image_angle = dir;
 
 if (dir &gt; 360)
 {
@@ -151,13 +160,21 @@ else if (dir &lt; 0)
     dir = 360;
 }
 
-if (phy_speed &lt; 0.5)
+if (speed &lt;= 1)
 {
     canPush = true;
 }
 else
 {
     canPush = false;
+}
+if (boost &gt; maxBoost)
+{
+    boost = maxBoost;
+}
+if (speed &lt; 0)
+{
+    speed = 0;
 }
 
 </string>
@@ -213,21 +230,16 @@ shapeNum = irandom_range(1,4);
       </action>
     </event>
   </events>
-  <PhysicsObject>-1</PhysicsObject>
+  <PhysicsObject>0</PhysicsObject>
   <PhysicsObjectSensor>0</PhysicsObjectSensor>
   <PhysicsObjectShape>1</PhysicsObjectShape>
-  <PhysicsObjectDensity>0.699999988079071</PhysicsObjectDensity>
-  <PhysicsObjectRestitution>1</PhysicsObjectRestitution>
+  <PhysicsObjectDensity>10</PhysicsObjectDensity>
+  <PhysicsObjectRestitution>0</PhysicsObjectRestitution>
   <PhysicsObjectGroup>0</PhysicsObjectGroup>
-  <PhysicsObjectLinearDamping>0.800000011920929</PhysicsObjectLinearDamping>
-  <PhysicsObjectAngularDamping>0.800000011920929</PhysicsObjectAngularDamping>
-  <PhysicsObjectFriction>0.400000005960464</PhysicsObjectFriction>
+  <PhysicsObjectLinearDamping>5</PhysicsObjectLinearDamping>
+  <PhysicsObjectAngularDamping>1</PhysicsObjectAngularDamping>
+  <PhysicsObjectFriction>5</PhysicsObjectFriction>
   <PhysicsObjectAwake>-1</PhysicsObjectAwake>
   <PhysicsObjectKinematic>-1</PhysicsObjectKinematic>
-  <PhysicsShapePoints>
-    <point>0,0</point>
-    <point>128,0</point>
-    <point>128,128</point>
-    <point>0,128</point>
-  </PhysicsShapePoints>
+  <PhysicsShapePoints/>
 </object>
