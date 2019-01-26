@@ -11,10 +11,14 @@
       <sound>sound\sng_theme3</sound>
     </sounds>
     <sounds name="ag_fx">
-      <sound>sound\fx_boong</sound>
-      <sound>sound\fx_fwah</sound>
-      <sound>sound\fx_byah</sound>
-      <sound>sound\fx_boopboop</sound>
+      <sound>sound\fx_boong_left</sound>
+      <sound>sound\fx_boong_right</sound>
+      <sound>sound\fx_fwah_left</sound>
+      <sound>sound\fx_fwah_right</sound>
+      <sound>sound\fx_byah_left</sound>
+      <sound>sound\fx_byah_right</sound>
+      <sound>sound\fx_boopboop_left</sound>
+      <sound>sound\fx_boopboop_right</sound>
       <sound>sound\fx_success</sound>
       <sound>sound\fx_bounce</sound>
       <sound>sound\fx_startgame</sound>
