@@ -21,20 +21,24 @@
     </sounds>
   </sounds>
   <sprites name="sprites">
-    <sprite>sprites\TestBlock</sprite>
     <sprite>sprites\spr_shape1</sprite>
     <sprite>sprites\spr_shape2</sprite>
     <sprite>sprites\spr_shape3</sprite>
     <sprite>sprites\spr_shape4</sprite>
     <sprite>sprites\TestWall</sprite>
     <sprite>sprites\spr_hex_particle</sprite>
+    <sprite>sprites\sprite6</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
   <objects name="objects">
-    <object>objects\TestBlock_obj</object>
+    <object>objects\Player_shape1</object>
+    <object>objects\Player_shape2</object>
+    <object>objects\Player_shape3</object>
+    <object>objects\Player_shape4</object>
     <object>objects\Game__Manager</object>
     <object>objects\ParentWall_obj</object>
+    <object>objects\circle_wall</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>
