@@ -27,7 +27,7 @@
     <sprite>sprites\spr_shape4</sprite>
     <sprite>sprites\TestWall</sprite>
     <sprite>sprites\spr_hex_particle</sprite>
-    <sprite>sprites\sprite6</sprite>
+    <sprite>sprites\circleWall</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -39,6 +39,7 @@
     <object>objects\Game__Manager</object>
     <object>objects\ParentWall_obj</object>
     <object>objects\circle_wall</object>
+    <object>objects\Player_home</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>
