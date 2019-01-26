@@ -53,6 +53,7 @@
   <instances>
     <instance objName="TestBlock_obj" x="416" y="320" name="inst_A8FE30A9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Game__Manager" x="0" y="0" name="inst_F5716C78" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="ParentWall_obj" x="480" y="160" name="inst_504C708A" locked="0" code="" scaleX="4.5" scaleY="3.5" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>-1</PhysicsWorld>

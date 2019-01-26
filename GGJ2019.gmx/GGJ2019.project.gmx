@@ -22,12 +22,14 @@
     <sprite>sprites\spr_shape2</sprite>
     <sprite>sprites\spr_shape3</sprite>
     <sprite>sprites\spr_shape4</sprite>
+    <sprite>sprites\TestWall</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
   <objects name="objects">
     <object>objects\TestBlock_obj</object>
     <object>objects\Game__Manager</object>
+    <object>objects\ParentWall_obj</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>
