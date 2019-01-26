@@ -30,7 +30,9 @@
     <sprite>sprites\circleWall</sprite>
     <sprite>sprites\spr_shape4_home</sprite>
   </sprites>
-  <backgrounds name="background"/>
+  <backgrounds name="background">
+    <background>background\bkg_main</background>
+  </backgrounds>
   <paths name="paths"/>
   <objects name="objects">
     <object>objects\Player_shape1</object>
