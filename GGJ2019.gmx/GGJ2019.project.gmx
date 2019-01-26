@@ -28,6 +28,7 @@
     <sprite>sprites\TestWall</sprite>
     <sprite>sprites\spr_hex_particle</sprite>
     <sprite>sprites\circleWall</sprite>
+    <sprite>sprites\spr_shape4_home</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
