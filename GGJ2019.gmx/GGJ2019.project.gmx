@@ -49,6 +49,7 @@
     <sprite>sprites\spr_black</sprite>
     <sprite>sprites\spr_quityes</sprite>
     <sprite>sprites\spr_quitno</sprite>
+    <sprite>sprites\spr_menuBorder</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bkg_main</background>
@@ -67,8 +68,14 @@
     <object>objects\pulse</object>
     <object>objects\background_colourchange</object>
     <object>objects\walls_colourchange</object>
+    <object>objects\obj_Menu_Border</object>
+    <object>objects\obj_Menu_Quit</object>
+    <object>objects\obj_Menu_StartGame</object>
+    <object>objects\obj_Menu_Controls</object>
+    <object>objects\obj_Menu_Listen</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\Menu</room>
     <room>rooms\TestRoom</room>
   </rooms>
   <help>

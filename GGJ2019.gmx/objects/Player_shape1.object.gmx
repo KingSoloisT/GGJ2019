@@ -269,6 +269,25 @@ switch (shapeNum)
         break;
 }
 
+if (room == 0)
+{
+    if (sprite_index == spr_shape1)
+    {
+        instance_create(1300, 650, home);
+    }
+    if (sprite_index == spr_shape2)
+    {
+        instance_create(1300, 650, home2);
+    }
+    if (sprite_index == spr_shape3)
+    {
+        instance_create(1300, 650, home3);
+    }
+    if (sprite_index == spr_shape4)
+    {
+        instance_create(1300, 650, home4);
+    }
+}
 </string>
           </argument>
         </arguments>
@@ -528,130 +547,276 @@ else
 
 
 
-
-if ((position_meeting( home.x, home.y, Player_shape1)) &amp;&amp; (sprite_index == spr_shape1) ) 
+if (instance_exists(home))
 {
-    if ((image_angle &gt;= 0) &amp;&amp; (image_angle &lt;= 15) || (image_angle &gt;= 345) &amp;&amp; (image_angle &lt;= 360)) //0 - facing up
+    if ((position_meeting( home.x, home.y, Player_shape1)) &amp;&amp; (sprite_index == spr_shape1) ) 
     {
-        x = home.x;
-        y = home.y;
-        
-        show_debug_message("GAME END! Shape 1");
-        
-        image_xscale -= 0.05;
-        image_yscale -= 0.05;
-        //game_end();
-        //win or next shape.
-    }
-    else if ((image_angle &gt;= 165) &amp;&amp; (image_angle &lt;= 195))//180 - facing down
-    {
-        x = home.x;
-        y = home.y;
-        
-        show_debug_message("GAME END! Shape 1");
-        
-        image_xscale -= 0.05;
-        image_yscale -= 0.05;
-        //game_end();
-        //win or next shape.
-    }
-    else if ((image_angle &gt;= 75) &amp;&amp; (image_angle &lt;= 105))//90 - facing left
-    {
-        x = home.x;
-        y = home.y;
-        
-        show_debug_message("GAME END! Shape 1");
-        
-        image_xscale -= 0.05;
-        image_yscale -= 0.05;
-        //game_end();
-        //win or next shape.
-    }
-    else if ((image_angle &gt;= 255) &amp;&amp; (image_angle &lt;= 285))//270 - facing right
-    {
-        x = home.x;
-        y = home.y;
-        
-        show_debug_message("GAME END! Shape 1");
-        
-        image_xscale -= 0.05;
-        image_yscale -= 0.05;
-        //game_end();
-        //win or next shape.
-    }
-}
-else if ((position_meeting( home2.x, home2.y, Player_shape1)) &amp;&amp; sprite_index == spr_shape2 ) //0 - facing up
-{
-    if ((image_angle &gt;= 0) &amp;&amp; (image_angle &lt;= 15) || (image_angle &gt;= 345) &amp;&amp; (image_angle &lt;= 360))
-    {
-        x = home2.x;
-        y = home2.y;
-        
-        show_debug_message("GAME END! Shape 2");
-        
-        image_xscale -= 0.05;
-        image_yscale -= 0.05;
-        
-        //game_end();
-        //win or next shape.
-    }
-    else if ((image_angle &gt;= 165) &amp;&amp; (image_angle &lt;= 195))//180 - facing down
-    {
-        x = home2.x;
-        y = home2.y;
-        
-        show_debug_message("GAME END! Shape 2");
-        
-        image_xscale -= 0.05;
-        image_yscale -= 0.05;
-        //game_end();
-        //win or next shape.
-    }
-}
-else if ((position_meeting( home3.x, home3.y, Player_shape1)) &amp;&amp; sprite_index == spr_shape3 ) 
-{
-    if ((image_angle &gt;= 0) &amp;&amp; (image_angle &lt;= 15) || (image_angle &gt;= 345) &amp;&amp; (image_angle &lt;= 360))//0 - facing up
-    {
-        x = home3.x;
-        y = home3.y;
-        
-        show_debug_message("GAME END! Shape 3");
-        
-        image_xscale -= 0.05;
-        image_yscale -= 0.05;
-        //game_end();
-        //win or next shape.
-    }
-}
-else if ((position_meeting( home4.x, home4.y, Player_shape1)) &amp;&amp; sprite_index == spr_shape4 ) //0 - facing up
-{
-    if ((image_angle &gt;= 0) &amp;&amp; (image_angle &lt;= 15) || (image_angle &gt;= 345) &amp;&amp; (image_angle &lt;= 360))
-    {
-        x = home4.x;
-        y = home4.y;
-        
-        show_debug_message("GAME END! Shape 4");
-        
-        image_xscale -= 0.05;
-        image_yscale -= 0.05;
-        //game_end();
-        //win or next shape.
-    }
-    else if ((image_angle &gt;= 165) &amp;&amp; (image_angle &lt;= 195))//180 - facing down
-    {
-        x = home4.x;
-        y = home4.y;
-        
-        show_debug_message("GAME END! Shape 4");
-        
-        image_xscale -= 0.05;
-        image_yscale -= 0.05;
-        //game_end();
-        //win or next shape.
+        if ((image_angle &gt;= 0) &amp;&amp; (image_angle &lt;= 15) || (image_angle &gt;= 345) &amp;&amp; (image_angle &lt;= 360)) //0 - facing up
+        {
+            x = home.x;
+            y = home.y;
+            
+            //show_debug_message("GAME END! Shape 1");
+            
+            image_xscale -= 0.05;
+            image_yscale -= 0.05;
+            //game_end();
+            //win or next shape.
+            
+            if (image_xscale &lt;= 0)
+            {
+                if room_next(room) != -1
+                {
+                    room_goto_next();
+                }
+                else
+                {
+                    room_goto(room);
+                }
+            }
+        }
+        else if ((image_angle &gt;= 165) &amp;&amp; (image_angle &lt;= 195))//180 - facing down
+        {
+            x = home.x;
+            y = home.y;
+            
+            show_debug_message("GAME END! Shape 1");
+            
+            image_xscale -= 0.05;
+            image_yscale -= 0.05;
+            //game_end();
+            //win or next shape.
+            
+            if (image_xscale &lt;= 0)
+            {
+                if room_next(room) != -1
+                {
+                    room_goto_next();
+                }
+                else
+                {
+                    room_goto(room);
+                }
+            }
+        }
+        else if ((image_angle &gt;= 75) &amp;&amp; (image_angle &lt;= 105))//90 - facing left
+        {
+            x = home.x;
+            y = home.y;
+            
+            show_debug_message("GAME END! Shape 1");
+            
+            image_xscale -= 0.05;
+            image_yscale -= 0.05;
+            //game_end();
+            //win or next shape.
+            
+            if (image_xscale &lt;= 0)
+            {
+                if room_next(room) != -1
+                {
+                    room_goto_next();
+                }
+                else
+                {
+                    room_goto(room);
+                }
+            }
+        }
+        else if ((image_angle &gt;= 255) &amp;&amp; (image_angle &lt;= 285))//270 - facing right
+        {
+            x = home.x;
+            y = home.y;
+            
+            show_debug_message("GAME END! Shape 1");
+            
+            image_xscale -= 0.05;
+            image_yscale -= 0.05;
+            //game_end();
+            //win or next shape.
+            
+            if (image_xscale &lt;= 0)
+            {
+                if room_next(room) != -1
+                {
+                    room_goto_next();
+                }
+                else
+                {
+                    room_goto(room);
+                }
+            }
+        }
     }
 }
 
+if (instance_exists(home2))
+{
+    if ((position_meeting( home2.x, home2.y, Player_shape1)) &amp;&amp; sprite_index == spr_shape2 ) //0 - facing up
+    {
+        if ((image_angle &gt;= 0) &amp;&amp; (image_angle &lt;= 15) || (image_angle &gt;= 345) &amp;&amp; (image_angle &lt;= 360))
+        {
+            x = home2.x;
+            y = home2.y;
+            
+            show_debug_message("GAME END! Shape 2");
+            
+            image_xscale -= 0.05;
+            image_yscale -= 0.05;
+            
+            //game_end();
+            //win or next shape.
+            
+            if (image_xscale &lt;= 0)
+            {
+                if room_next(room) != -1
+                {
+                    room_goto_next();
+                }
+                else
+                {
+                    room_goto(room);
+                }
+            }
+        }
+        else if ((image_angle &gt;= 165) &amp;&amp; (image_angle &lt;= 195))//180 - facing down
+        {
+            x = home2.x;
+            y = home2.y;
+            
+            show_debug_message("GAME END! Shape 2");
+            
+            image_xscale -= 0.05;
+            image_yscale -= 0.05;
+            //game_end();
+            //win or next shape.
+            
+            if (image_xscale &lt;= 0)
+            {
+                if room_next(room) != -1
+                {
+                    room_goto_next();
+                }
+                else
+                {
+                    room_goto(room);
+                }
+            }
+        }
+    }
+}
+    
+if (instance_exists(home3))
+{
+    if ((position_meeting( home3.x, home3.y, Player_shape1)) &amp;&amp; sprite_index == spr_shape3 ) 
+    {
+        if ((image_angle &gt;= 0) &amp;&amp; (image_angle &lt;= 15) || (image_angle &gt;= 345) &amp;&amp; (image_angle &lt;= 360))//0 - facing up
+        {
+            x = home3.x;
+            y = home3.y;
+            
+            show_debug_message("GAME END! Shape 3");
+            
+            image_xscale -= 0.05;
+            image_yscale -= 0.05;
+            //game_end();
+            //win or next shape.
+            
+            if (image_xscale &lt;= 0)
+            {
+                if room_next(room) != -1
+                {
+                    room_goto_next();
+                }
+                else
+                {
+                    room_goto(room);
+                }
+            }
+        }
+    }
+}
+    
+if (instance_exists(home4))
+{
+    if ((position_meeting( home4.x, home4.y, Player_shape1)) &amp;&amp; sprite_index == spr_shape4 ) //0 - facing up
+    {
+        if ((image_angle &gt;= 0) &amp;&amp; (image_angle &lt;= 15) || (image_angle &gt;= 345) &amp;&amp; (image_angle &lt;= 360))
+        {
+            x = home4.x;
+            y = home4.y;
+            
+            show_debug_message("GAME END! Shape 4");
+            
+            image_xscale -= 0.05;
+            image_yscale -= 0.05;
+            //game_end();
+            //win or next shape.
+            
+            if (image_xscale &lt;= 0)
+            {
+                if room_next(room) != -1
+                {
+                    room_goto_next();
+                }
+                else
+                {
+                    room_goto(room);
+                }
+            }
+        }
+        else if ((image_angle &gt;= 165) &amp;&amp; (image_angle &lt;= 195))//180 - facing down
+        {
+            x = home4.x;
+            y = home4.y;
+            
+            show_debug_message("GAME END! Shape 4");
+            
+            image_xscale -= 0.05;
+            image_yscale -= 0.05;
+            //game_end();
+            //win or next shape.
+            
+            if (image_xscale &lt;= 0)
+            {
+                if room_next(room) != -1
+                {
+                    room_goto_next();
+                }
+                else
+                {
+                    room_goto(room);
+                }
+            }
+        }
+    }
+}
 
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_Menu_Border">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>move_bounce_solid(true);
+audio_play_sound(fx_bounce, 70, false);
 </string>
           </argument>
         </arguments>
