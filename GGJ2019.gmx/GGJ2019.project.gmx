@@ -42,7 +42,7 @@
     <object>objects\home</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\room0</room>
+    <room>rooms\TestRoom</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
