@@ -44,9 +44,12 @@
     <sprite>sprites\spr_controls</sprite>
     <sprite>sprites\spr_quit</sprite>
     <sprite>sprites\spr_findhome</sprite>
+    <sprite>sprites\spr_shh</sprite>
+    <sprite>sprites\spr_glow</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bkg_main</background>
+    <background>background\bkg_main2</background>
   </backgrounds>
   <paths name="paths"/>
   <objects name="objects">
@@ -59,6 +62,7 @@
     <object>objects\home3</object>
     <object>objects\home4</object>
     <object>objects\pulse</object>
+    <object>objects\background_colourchange</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\TestRoom</room>
