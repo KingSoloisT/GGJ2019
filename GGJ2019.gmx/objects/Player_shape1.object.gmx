@@ -98,7 +98,7 @@ pitch = 0;
             <kind>1</kind>
             <string>audio_sound_gain(sound4Left,volume,1);
 audio_sound_gain(sound4Right,volume,1);
-if (home4.x &lt; x)
+if (home4.x &lt; x-100)
 {
     audio_play_sound(sound4Left,30,false);
 }
@@ -134,7 +134,7 @@ alarm[4] = 10;
             <kind>1</kind>
             <string>audio_sound_gain(sound3Left,volume3,1);
 audio_sound_gain(sound3Right,volume3,1);
-if (home3.x &lt; x)
+if (home3.x &lt; -100)
 {
     audio_play_sound(sound3Left,30,false);
 }
@@ -170,7 +170,7 @@ alarm[4] = 10;
             <kind>1</kind>
             <string>audio_sound_gain(sound2Left,volume2,1);
 audio_sound_gain(sound2Right,volume2,1);
-if (home2.x &lt; x)
+if (home2.x &lt; x-100)
 {
     audio_play_sound(sound2Left,30,false);
 }
@@ -206,7 +206,7 @@ alarm[4] = 10;
             <kind>1</kind>
             <string>audio_sound_gain(soundLeft,volume,1);
 audio_sound_gain(soundRight,volume,1);
-if (home.x &lt; x)
+if (home.x &lt; x-100)
 {
     audio_play_sound(soundLeft,30,false);
 }
@@ -412,9 +412,29 @@ if (speed &lt; 0)
 //Pulse
 if (keyboard_check_pressed(vk_space) &amp;&amp; !isMoving)
 {
-    audio_sound_gain(sound,1,1);
-    audio_play_sound(sound,30,false);
-    alarm[3] = 20; alarm[1] = 40; alarm[0] = 60; alarm[2] = 80;
+    switch(shapeNum)
+    {
+        case 1:
+            audio_sound_gain(sound,1,1);
+            audio_play_sound(sound,30,false);
+            alarm[3] = 20; alarm[1] = 40; alarm[0] = 60; alarm[2] = 80;
+            break;
+        case 2:
+            audio_sound_gain(sound2,1,1);
+            audio_play_sound(sound2,30,false);
+            alarm[2] = 20; alarm[1] = 40; alarm[3] = 60; alarm[0] = 80;
+            break;
+        case 3:
+            audio_sound_gain(sound3,1,1);
+            audio_play_sound(sound3,30,false);
+            alarm[1] = 20; alarm[3] = 40; alarm[2] = 60; alarm[0] = 80;
+            break;
+        case 4:
+            audio_sound_gain(sound4,1,1);
+            audio_play_sound(sound4,30,false);
+            alarm[0] = 20; alarm[2] = 40; alarm[1] = 60; alarm[3] = 80;
+            break;
+    }
     instance_create(x,y,pulse);
     pulseX = x;
     pulseY = y;
@@ -547,7 +567,8 @@ audio_play_sound(fx_bounce, 70, false);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>randomize();
+            <string>audio_master_gain(2);
+randomize();
 shapeNum = irandom_range(1,4);
 
 </string>
