@@ -8,12 +8,16 @@
     <sounds name="ag_songs">
       <sound>sound\sng_creepynotcreepy</sound>
       <sound>sound\sng_reallynotcreepy</sound>
+      <sound>sound\sng_theme3</sound>
     </sounds>
     <sounds name="ag_fx">
       <sound>sound\fx_boong</sound>
       <sound>sound\fx_fwah</sound>
       <sound>sound\fx_byah</sound>
       <sound>sound\fx_boopboop</sound>
+      <sound>sound\fx_success</sound>
+      <sound>sound\fx_bounce</sound>
+      <sound>sound\fx_startgame</sound>
     </sounds>
   </sounds>
   <sprites name="sprites">
