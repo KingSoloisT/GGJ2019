@@ -22,6 +22,10 @@
       <sound>sound\fx_success</sound>
       <sound>sound\fx_bounce</sound>
       <sound>sound\fx_startgame</sound>
+      <sound>sound\fx_boong</sound>
+      <sound>sound\fx_fwah</sound>
+      <sound>sound\fx_byah</sound>
+      <sound>sound\fx_boopboop</sound>
     </sounds>
   </sounds>
   <sprites name="sprites">
@@ -43,7 +47,6 @@
   </sprites>
   <backgrounds name="background">
     <background>background\bkg_main</background>
-    <background>background\bkg_main2</background>
   </backgrounds>
   <paths name="paths"/>
   <objects name="objects">
@@ -56,7 +59,6 @@
     <object>objects\home3</object>
     <object>objects\home4</object>
     <object>objects\pulse</object>
-    <object>objects\background_colourchange</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\TestRoom</room>
