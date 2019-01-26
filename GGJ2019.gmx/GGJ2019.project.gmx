@@ -36,6 +36,7 @@
   </sprites>
   <backgrounds name="background">
     <background>background\bkg_main</background>
+    <background>background\bkg_main2</background>
   </backgrounds>
   <paths name="paths"/>
   <objects name="objects">
@@ -44,6 +45,7 @@
     <object>objects\ParentWall_obj</object>
     <object>objects\circle_wall</object>
     <object>objects\home</object>
+    <object>objects\background_colourchange</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\TestRoom</room>
