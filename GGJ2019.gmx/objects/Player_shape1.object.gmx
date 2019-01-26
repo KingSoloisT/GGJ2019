@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>thrustPower = 100;
+            <string>//thrustPower = 100;
+thrustPower = 0;
+boosterPower = 2;
 turnSpeed = 3;
 dir = 0;
 canPush = true;
@@ -91,19 +93,30 @@ canPush = true;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (keyboard_check_pressed(vk_space))
+            <string>key_thrust_held = keyboard_check(vk_space);
+key_thrust_release = keyboard_check_released(vk_space);
+
+if ((key_thrust_held) &amp;&amp; (canPush))
+{
+    thrustPower += boosterPower;
+    show_debug_message(thrustPower);
+}
+
+//if (keyboard_check_pressed(vk_space))
+if (key_thrust_release)
 {
     if (canPush)
     {
         physics_apply_local_impulse(0,0,0,-thrustPower * 100);
+        thrustPower = 0;
     }
 }
-if (keyboard_check(vk_left))
+if (keyboard_check(vk_left) || (keyboard_check(ord('A'))))
 {
     dir += 1 * turnSpeed;
 }
 
-if (keyboard_check(vk_right))
+if (keyboard_check(vk_right) || (keyboard_check(ord('D'))))
 {
     dir -= 1 * turnSpeed;
 }
