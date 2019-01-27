@@ -101,9 +101,20 @@ drawGUI = true;
             <kind>1</kind>
             <string>audio_sound_gain(sound4Left,volume,1);
 audio_sound_gain(sound4Right,volume,1);
-if (home4.x &lt; x-100)
+
+if (instance_exists(home4))
 {
-    audio_play_sound(sound4Left,30,false);
+    if (home4.x &lt; x-100)
+    {
+        audio_play_sound(sound4Left,30,false);
+    }
+    else
+    {
+        audio_play_sound(sound4Right,30,false);
+    }
+    instance_create(home4.x, home4.y, pulse);
+    pulseX = home4.x;
+    pulseY = home4.y;
 }
 else if (home4.x &gt; x+100)
 {
@@ -143,8 +154,20 @@ alarm[4] = 10;
             <string>audio_sound_gain(sound3Left,volume3,1);
 audio_sound_gain(sound3Right,volume3,1);
 if (home3.x &lt; x-100)
+
+if (instance_exists(home3))
 {
-    audio_play_sound(sound3Left,30,false);
+    if (home3.x &lt; -100)
+    {
+        audio_play_sound(sound3Left,30,false);
+    }
+    else
+    {
+        audio_play_sound(sound3Right,30,false);
+    }
+    instance_create(home3.x, home3.y, pulse);
+    pulseX = home3.x;
+    pulseY = home3.y;
 }
 else if (home3.x &gt; x+100)
 {
@@ -183,9 +206,20 @@ alarm[4] = 10;
             <kind>1</kind>
             <string>audio_sound_gain(sound2Left,volume2,1);
 audio_sound_gain(sound2Right,volume2,1);
-if (home2.x &lt; x-100)
+
+if (instance_exists(home2))
 {
-    audio_play_sound(sound2Left,30,false);
+    if (home2.x &lt; x-100)
+    {
+        audio_play_sound(sound2Left,30,false);
+    }
+    else
+    {
+        audio_play_sound(sound2Right,30,false);
+    }
+    instance_create(home2.x, home2.y, pulse);
+    pulseX = home2.x;
+    pulseY = home2.y
 }
 else if (home4.x &gt; x+100)
 {
@@ -224,9 +258,22 @@ alarm[4] = 10;
             <kind>1</kind>
             <string>audio_sound_gain(soundLeft,volume,1);
 audio_sound_gain(soundRight,volume,1);
-if (home.x &lt; x-100)
+
+if (instance_exists(home))
 {
-    audio_play_sound(soundLeft,30,false);
+    if (home.x &lt; x-100)
+    {
+        audio_play_sound(soundLeft,30,false);
+    }
+    else
+    {
+        audio_play_sound(soundRight,30,false);
+    }
+    
+    instance_create(home.x, home.y, pulse);
+    
+    pulseX = home.x;
+    pulseY = home.y
 }
 else if (home.x &gt; x+100)
 {
@@ -301,18 +348,22 @@ if (room == 0)
     if (sprite_index == spr_shape1)
     {
         instance_create(1300, 650, home);
+        instance_create(300, 650, Quit1);
     }
     if (sprite_index == spr_shape2)
     {
         instance_create(1300, 650, home2);
+        instance_create(300, 650, Quit2);
     }
     if (sprite_index == spr_shape3)
     {
         instance_create(1300, 650, home3);
+        instance_create(300, 650, Quit3);
     }
     if (sprite_index == spr_shape4)
     {
         instance_create(1300, 650, home4);
+        instance_create(300, 650, Quit4);
     }
 }
 </string>
@@ -567,261 +618,21 @@ else
     image_speed = 0.5;
 }
 
+scr_Home1();
 
-
-
-
-
-
-
-
-
-if (instance_exists(home))
-{
-    if ((position_meeting( home.x, home.y, Player_shape1)) &amp;&amp; (sprite_index == spr_shape1) ) 
-    {
-        if ((image_angle &gt;= 0) &amp;&amp; (image_angle &lt;= 15) || (image_angle &gt;= 345) &amp;&amp; (image_angle &lt;= 360)) //0 - facing up
-        {
-            x = home.x;
-            y = home.y;
-            
-            //show_debug_message("GAME END! Shape 1");
-            
-            image_xscale -= 0.05;
-            image_yscale -= 0.05;
-            //game_end();
-            //win or next shape.
-            
-            if (image_xscale &lt;= 0)
-            {
-                if room_next(room) != -1
-                {
-                    room_goto_next();
-                }
-                else
-                {
-                    room_goto(room);
-                }
-            }
-        }
-        else if ((image_angle &gt;= 165) &amp;&amp; (image_angle &lt;= 195))//180 - facing down
-        {
-            x = home.x;
-            y = home.y;
-            
-            show_debug_message("GAME END! Shape 1");
-            
-            image_xscale -= 0.05;
-            image_yscale -= 0.05;
-            //game_end();
-            //win or next shape.
-            
-            if (image_xscale &lt;= 0)
-            {
-                if room_next(room) != -1
-                {
-                    room_goto_next();
-                }
-                else
-                {
-                    room_goto(room);
-                }
-            }
-        }
-        else if ((image_angle &gt;= 75) &amp;&amp; (image_angle &lt;= 105))//90 - facing left
-        {
-            x = home.x;
-            y = home.y;
-            
-            show_debug_message("GAME END! Shape 1");
-            
-            image_xscale -= 0.05;
-            image_yscale -= 0.05;
-            //game_end();
-            //win or next shape.
-            
-            if (image_xscale &lt;= 0)
-            {
-                if room_next(room) != -1
-                {
-                    room_goto_next();
-                }
-                else
-                {
-                    room_goto(room);
-                }
-            }
-        }
-        else if ((image_angle &gt;= 255) &amp;&amp; (image_angle &lt;= 285))//270 - facing right
-        {
-            x = home.x;
-            y = home.y;
-            
-            show_debug_message("GAME END! Shape 1");
-            
-            image_xscale -= 0.05;
-            image_yscale -= 0.05;
-            //game_end();
-            //win or next shape.
-            
-            if (image_xscale &lt;= 0)
-            {
-                if room_next(room) != -1
-                {
-                    room_goto_next();
-                }
-                else
-                {
-                    room_goto(room);
-                }
-            }
-        }
-    }
-}
-
-if (instance_exists(home2))
-{
-    if ((position_meeting( home2.x, home2.y, Player_shape1)) &amp;&amp; sprite_index == spr_shape2 ) //0 - facing up
-    {
-        if ((image_angle &gt;= 0) &amp;&amp; (image_angle &lt;= 15) || (image_angle &gt;= 345) &amp;&amp; (image_angle &lt;= 360))
-        {
-            x = home2.x;
-            y = home2.y;
-            
-            show_debug_message("GAME END! Shape 2");
-            
-            image_xscale -= 0.05;
-            image_yscale -= 0.05;
-            
-            //game_end();
-            //win or next shape.
-            
-            if (image_xscale &lt;= 0)
-            {
-                if room_next(room) != -1
-                {
-                    room_goto_next();
-                }
-                else
-                {
-                    room_goto(room);
-                }
-            }
-        }
-        else if ((image_angle &gt;= 165) &amp;&amp; (image_angle &lt;= 195))//180 - facing down
-        {
-            x = home2.x;
-            y = home2.y;
-            
-            show_debug_message("GAME END! Shape 2");
-            
-            image_xscale -= 0.05;
-            image_yscale -= 0.05;
-            //game_end();
-            //win or next shape.
-            
-            if (image_xscale &lt;= 0)
-            {
-                if room_next(room) != -1
-                {
-                    room_goto_next();
-                }
-                else
-                {
-                    room_goto(room);
-                }
-            }
-        }
-    }
-}
+scr_Home2();
     
-if (instance_exists(home3))
-{
-    if ((position_meeting( home3.x, home3.y, Player_shape1)) &amp;&amp; sprite_index == spr_shape3 ) 
-    {
-        if ((image_angle &gt;= 0) &amp;&amp; (image_angle &lt;= 15) || (image_angle &gt;= 345) &amp;&amp; (image_angle &lt;= 360))//0 - facing up
-        {
-            x = home3.x;
-            y = home3.y;
-            
-            show_debug_message("GAME END! Shape 3");
-            
-            image_xscale -= 0.05;
-            image_yscale -= 0.05;
-            //game_end();
-            //win or next shape.
-            
-            if (image_xscale &lt;= 0)
-            {
-                if room_next(room) != -1
-                {
-                    room_goto_next();
-                }
-                else
-                {
-                    room_goto(room);
-                }
-            }
-        }
-    }
-}
+scr_Home3()
     
-if (instance_exists(home4))
-{
-    if ((position_meeting( home4.x, home4.y, Player_shape1)) &amp;&amp; sprite_index == spr_shape4 ) //0 - facing up
-    {
-        if ((image_angle &gt;= 0) &amp;&amp; (image_angle &lt;= 15) || (image_angle &gt;= 345) &amp;&amp; (image_angle &lt;= 360))
-        {
-            x = home4.x;
-            y = home4.y;
-            
-            show_debug_message("GAME END! Shape 4");
-            
-            image_xscale -= 0.05;
-            image_yscale -= 0.05;
-            //game_end();
-            //win or next shape.
-            
-            if (image_xscale &lt;= 0)
-            {
-                if room_next(room) != -1
-                {
-                    room_goto_next();
-                }
-                else
-                {
-                    room_goto(room);
-                }
-            }
-        }
-        else if ((image_angle &gt;= 165) &amp;&amp; (image_angle &lt;= 195))//180 - facing down
-        {
-            x = home4.x;
-            y = home4.y;
-            
-            show_debug_message("GAME END! Shape 4");
-            
-            image_xscale -= 0.05;
-            image_yscale -= 0.05;
-            //game_end();
-            //win or next shape.
-            
-            if (image_xscale &lt;= 0)
-            {
-                if room_next(room) != -1
-                {
-                    room_goto_next();
-                }
-                else
-                {
-                    room_goto(room);
-                }
-            }
-        }
-    }
-}
+scr_Home4();
 
+scr_Quit1();
 
+scr_Quit2();
+
+scr_Quit3();
+
+scr_Quit4();
 </string>
           </argument>
         </arguments>
