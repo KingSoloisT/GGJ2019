@@ -51,6 +51,9 @@ dist3 = 0;
 dist4 = 0;
 pitchDist = 0;
 pitch = 0;
+glowFlip = 0;
+target = 0;
+drawGUI = true;
 </string>
           </argument>
         </arguments>
@@ -102,10 +105,15 @@ if (home4.x &lt; x-100)
 {
     audio_play_sound(sound4Left,30,false);
 }
-else
+else if (home4.x &gt; x+100)
 {
     audio_play_sound(sound4Right,30,false);
 }
+else
+{
+    audio_play_sound(sound4,30,false);
+}
+global.pulseColor = 4;
 instance_create(home4.x, home4.y, pulse);
 pulseX = home4.x;
 pulseY = home4.y
@@ -134,14 +142,19 @@ alarm[4] = 10;
             <kind>1</kind>
             <string>audio_sound_gain(sound3Left,volume3,1);
 audio_sound_gain(sound3Right,volume3,1);
-if (home3.x &lt; -100)
+if (home3.x &lt; x-100)
 {
     audio_play_sound(sound3Left,30,false);
 }
-else
+else if (home3.x &gt; x+100)
 {
     audio_play_sound(sound3Right,30,false);
 }
+else
+{
+    audio_play_sound(sound3,30,false);
+}
+global.pulseColor = 3;
 instance_create(home3.x, home3.y, pulse);
 pulseX = home3.x;
 pulseY = home3.y
@@ -174,10 +187,15 @@ if (home2.x &lt; x-100)
 {
     audio_play_sound(sound2Left,30,false);
 }
-else
+else if (home4.x &gt; x+100)
 {
     audio_play_sound(sound2Right,30,false);
 }
+else
+{
+    audio_play_sound(sound2,30,false);
+}
+global.pulseColor = 2;
 instance_create(home2.x, home2.y, pulse);
 pulseX = home2.x;
 pulseY = home2.y
@@ -210,10 +228,15 @@ if (home.x &lt; x-100)
 {
     audio_play_sound(soundLeft,30,false);
 }
-else
+else if (home.x &gt; x+100)
 {
     audio_play_sound(soundRight,30,false);
 }
+else
+{
+    audio_play_sound(sound,30,false);
+}
+global.pulseColor = 1;
 instance_create(home.x, home.y, pulse);
 pulseX = home.x;
 pulseY = home.y
@@ -257,15 +280,19 @@ switch (shapeNum)
 {
     case 1:
         sprite_index = spr_shape1;
+        target = home;
         break;
     case 2:
         sprite_index = spr_shape2;
+        target = home2;
         break;
     case 3:
         sprite_index = spr_shape3;
+        target = home3;
         break;
     case 4:
         sprite_index = spr_shape4;
+        target = home4;
         break;
 }
 
@@ -454,6 +481,7 @@ if (keyboard_check_pressed(vk_space) &amp;&amp; !isMoving)
             alarm[0] = 20; alarm[2] = 40; alarm[1] = 60; alarm[3] = 80;
             break;
     }
+    global.pulseColor = shapeNum;
     instance_create(x,y,pulse);
     pulseX = x;
     pulseY = y;
@@ -472,6 +500,7 @@ if (keyboard_check_pressed(vk_enter))
     show_debug_message("Distance to Home: " + string(distance_to_object(home)));
     show_debug_message("Volumes: 1." + string(volume) + " 2." + string(volume2) + " 3." + string(volume3) + " 4." + string(volume4));
     show_debug_message("Animation Speed: " + string(image_speed));
+    show_debug_message("Mouse: " + string(mouse_x) + ", " + string(mouse_y));
     
 }
 
